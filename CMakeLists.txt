@@ -10,4 +10,4 @@ add_executable(NonlinearEquations
         headers/NonLinearSolver.h
         source/matrix.cpp
         source/NonLinearSolver.cpp
-        main.cpp)
+        main.cpp source/NonLinearSystemSolver.cpp headers/NonLinearSystemSolver.h source/LinearEquationSystemSolver.cpp headers/LinearEquationSystemSolver.h)

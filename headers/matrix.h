@@ -18,6 +18,14 @@ dvector dbRange(db beg, db end, int cnt);
 
 //-------------------------------- VECTOR ----------------------------------
 
+template<class T>
+T MaxAbsElement(vector<T> v){
+    T mx = abs(v[0]);
+    for(auto i : v)
+        mx = max(abs(i), mx);
+    return mx;
+}
+
 template <class T>
 ostream& operator<<(ostream& out, const vector<T>& v)
 {
@@ -47,6 +55,15 @@ dvector operator+(const vector<T>& a, const vector<T>& b)
     dvector res = a;
     for (int i = 0; i < a.size(); i++)
         res[i] += b[i];
+    return res;
+}
+
+template <class T>
+dvector operator-(const vector<T>& a, const vector<T>& b)
+{
+    dvector res = a;
+    for (int i = 0; i < a.size(); i++)
+        res[i] -= b[i];
     return res;
 }
 
