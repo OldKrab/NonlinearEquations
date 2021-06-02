@@ -3,4 +3,11 @@ project(NonlinearEquations)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(NonlinearEquations main.cpp)
+include_directories(headers)
+
+add_executable(NonlinearEquations
+        headers/matrix.h
+        headers/NonLinearSolver.h
+        source/matrix.cpp
+        source/NonLinearSolver.cpp
+        main.cpp)
