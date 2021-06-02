@@ -9,13 +9,15 @@ typedef function<db(dvector)> y_xn;
 class NonLinearSystemSolver {
 public:
     dvector Solve(db eps, dvector x0);
+    int GetIterCount() const;
     NonLinearSystemSolver(vector<y_xn> funcSystem, vector<vector<y_xn>> jacobiMatrix);
-private:
     dvector CalcSystem(vector<y_xn> system, dvector xs);
+private:
     dmatrix CalcFuncMatrix(vector<vector<y_xn>> matrix, dvector xs);
 
     vector<vector<y_xn>> jacobiMatrix;
     vector<y_xn> funcSystem;
+    int iterCount = 0;
 };
 
 

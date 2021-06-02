@@ -27,7 +27,7 @@ private:
     vector<int> rows_order;
     int _m;
     bool converted_to_triangular = false;
-    db eps = 1e-5;
+    db eps = 1e-8;
 };
 
 

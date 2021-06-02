@@ -7,12 +7,14 @@ NonLinearSystemSolver::NonLinearSystemSolver(vector<y_xn> funcSystem, vector<vec
 
 dvector NonLinearSystemSolver::Solve(db eps, dvector x0) {
     auto xSubs = dvector{};
+    iterCount = 0;
     do {
         auto b = CalcSystem(funcSystem, x0) * -1;
         auto a = CalcFuncMatrix(jacobiMatrix, x0);
         LinearEquationSystemSolver le(a, b);
         xSubs = le.Solve();
         x0 = xSubs + x0;
+        iterCount++;
     } while (MaxAbsElement(xSubs) > eps);
     return x0;
 }
@@ -29,6 +31,10 @@ dmatrix NonLinearSystemSolver::CalcFuncMatrix(vector<vector<y_xn>> matrix, dvect
     for (int i = 0; i < matrix.size(); i++)
         res[i] = CalcSystem(matrix[i], xs);
     return res;
+}
+
+int NonLinearSystemSolver::GetIterCount() const {
+    return iterCount;
 }
 
 

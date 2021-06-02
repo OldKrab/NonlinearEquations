@@ -51,7 +51,7 @@ void LinearEquationSystemSolver::ConvertToTriangular() {
 void LinearEquationSystemSolver::HandleMainElem(int k) {
     int row = SelectMaxElem(k);
     if (abs(_a[row][k]) < eps) {
-        throw invalid_argument("ÐœÐ°Ñ‚Ñ€Ð¸Ñ†Ð° Ð²Ñ‹Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð½Ð°Ñ");
+        ;//throw invalid_argument("Ìàòðèöà âûðîæäåííàÿ");
     }
     if (row == k)
         return;
